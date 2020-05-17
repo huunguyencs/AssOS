@@ -14,7 +14,7 @@ struct procinfos {
 	struct proc_info oldest_child_proc;
 };
 
-long sys_get_proc_info(pid_t pid,struct procinfos *info, long stuID){
+long get_proc_info(pid_t pid,struct procinfos *info, long stuID){
 	printk("Student ID: %ld",stuID);
 	info->studentID = stuID;
 	if (pid == -1) {
@@ -48,7 +48,7 @@ long sys_get_proc_info(pid_t pid,struct procinfos *info, long stuID){
 
 SYSCALL_DEFINE2(sys_get_proc_info, pid_t, pid, struct procinfos *, info)
 {
-	return sys_get_proc_info(pid,info,1812516);
+	return get_proc_info(pid,info,1812516);
 }
 
 
